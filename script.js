@@ -5,17 +5,15 @@ const again = document.querySelector(".again");
 const guess = document.querySelector(".guess");
 
 let secretNumber = Math.trunc(Math.random() * 20 + 1);
-console.log(secretNumber)
 
 let sc = 20;
 let highscore=0;
-
 button.addEventListener("click", () => {
-
+  
   const displayMessage= (message)=>{
     document.querySelector('.message').textContent=message;
   }
-
+  
   const displayNumber= (Number)=>{
     document.querySelector('.number').textContent=Number;
   }
@@ -26,7 +24,6 @@ button.addEventListener("click", () => {
   
   const guess = Number(document.querySelector(".guess").value);
   document.querySelector(".guess").focus();
-
   // when there is no input
   if (!guess) {
     displayMessage("nothing selected");
@@ -43,7 +40,6 @@ button.addEventListener("click", () => {
     }
 
     // when guess is too high
-
   } else if (guess!==secretNumber){
     if (sc > 1 ) {
       displayMessage(guess > secretNumber ? "too high.." : "too low..") 
@@ -58,20 +54,11 @@ button.addEventListener("click", () => {
   }
  
 });
-//------------ again button---------------
-
-// again.addEventListener("click", () => {
-//   location.reload();
-// });
-
-//------------ again button---------------
 again.addEventListener("click", () => {
   sc=20;
   secretNumber = Math.trunc(Math.random() * 20 + 1);
-  console.log(secretNumber)
   document.querySelector('.message').textContent='Start guessing';
   score.textContent=sc;
-
   document.querySelector('.number').textContent='?';
   guess.value='';
   document.querySelector(".guess").focus();
